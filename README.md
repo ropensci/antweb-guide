@@ -1,7 +1,7 @@
-### Big CB lunch time talk.  
-_Feb 25, 2014_
+### California Academy of Sciences seminar  
+_March 27th, 2014_
 
-A quick demo of how to use the ecoengine R package.
+A quick demo of how to use the antweb R package.
 
 
 
@@ -13,8 +13,7 @@ A quick demo of how to use the ecoengine R package.
 __To install packages used in this demo__
 
 ```coffee
-install.packages("ecoengine", dependencies = TRUE)
-install.packages("dplyr")
+install.packages("AntWeb", dependencies = TRUE)
 ```
 
 __Packages in development__
