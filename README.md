@@ -5,7 +5,7 @@ A quick demo of how to use the antweb R package.
 
 
 
-[![](slides.png)](http://karthik.github.io/eeguide/)
+[![](slides.png)](http://ropensci.github.io/antweb-guide/)
 
 
 
