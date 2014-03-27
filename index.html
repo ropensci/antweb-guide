@@ -369,7 +369,8 @@ rNEXML</pre>
 <span class="hl std">cal_basin_dat</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get_ensemble_temp</span><span class="hl std">(cal_basin_id,</span> <span class="hl str">&quot;annualanom&quot;</span><span class="hl std">,</span> <span class="hl num">2080</span><span class="hl std">,</span> <span class="hl num">2100</span><span class="hl std">)</span>
 </pre></div>
 </div>
-<img src="images/rWBClimate.png">
+<img src="images/rWBClimate.png"><br>
+<a href="https://gist.github.com/9811672">Full code example</a>
 </section>
 
 
@@ -650,9 +651,15 @@ Global Invasive Species Database</pre>
 
 
 
-<!-- =====
-Slide Break
-==== -->
+
+
+<section class="slide" id="spocc1">
+<br><br>
+    <div>
+    <h1> Species occurrence data (SPOCC) </h1>
+    </div>
+</section>
+
 
 <section class="slide" id="spocc2">
 <br><br>
@@ -663,18 +670,49 @@ Slide Break
 </section>
 
 
+<section class="slide" id="taxaviewer">
+<br><br>
+    <div>
+    	<h2>Combine various data sources</h2>
+    	<img src="images/taxaviewer.png">
+    	<a href="http://glimmer.rstudio.com/ropensci/usgs_app/">Live Shiny app</a>
+    </div>
+</section>
+
+<section class="slide" id="geojson">
+<br><br>
+    <div>
+    	<h2>Natively render geojson on GitHub</h2>
+    	<img src="images/geojson.png">
+    	<a href="https://gist.github.com/karthik/7807356">View on gists</a>
+    </div>
+</section>
+
+
+
+<section class="slide" id="cartodb">
+<br><br>
+    <div>
+    	<h2>Visualize data with Cartodb</h2>
+<iframe width='100%' height='800' frameborder='0' src='http://recology.cartodb.com/viz/76a5598e-444b-11e3-8a8c-5404a6a69006/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&zoom=3&center_lat=37.61423141542417&center_lon=-100.72265625'></iframe>
+    </div>
+</section>
+
+
+
+
 <section class="slide" id="reml_demo">
 	<h2>Writing valid EML and uploading to a persistent repo is simple</h2>
-<pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(reml)</span>
-<span class="hl std">description</span> <span class="hl kwb">&lt;-</span> <span class="hl str">&quot;Landings data for several species by year, from the OpenFisheries database&quot;</span>
+<pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(EML)</span>
+<span class="hl std">description</span> <span class="hl kwb">&lt;-</span> <span class="hl str">&quot;Specimen records of genus Crematogaster from the AntWeb database&quot;</span>
 
 
-<span class="hl kwd">eml_write</span><span class="hl std">(</span><span class="hl kwc">dat</span> <span class="hl std">= dat, meta,</span> <span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Landings Data&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span>
-    <span class="hl kwc">creator</span> <span class="hl std">=</span> <span class="hl str">&quot;Karthik Ram &lt;karthik@ropensci.org&gt;&quot;</span><span class="hl std">,</span> <span class="hl kwc">file</span> <span class="hl std">=</span> <span class="hl str">&quot;landings.xml&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">eml_write</span><span class="hl std">(</span><span class="hl kwc">dat</span> <span class="hl std">= dat, meta,</span> <span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Crematogaster records&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span>
+    <span class="hl kwc">creator</span> <span class="hl std">=</span> <span class="hl str">&quot;Karthik Ram &lt;karthik@ropensci.org&gt;&quot;</span><span class="hl std">,</span> <span class="hl kwc">file</span> <span class="hl std">=</span> <span class="hl str">&quot;crematogaster.xml&quot;</span><span class="hl std">)</span>
 
 
-<span class="hl kwd">eml_publish</span><span class="hl std">(</span><span class="hl str">&quot;landings.xml&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span> <span class="hl kwc">categories</span> <span class="hl std">=</span> <span class="hl str">&quot;Ecology&quot;</span><span class="hl std">,</span>
-    <span class="hl kwc">tags</span> <span class="hl std">=</span> <span class="hl str">&quot;fisheries&quot;</span><span class="hl std">,</span> <span class="hl kwc">destination</span> <span class="hl std">=</span> <span class="hl str">&quot;figshare&quot;</span><span class="hl std">,</span> <span class="hl kwc">visibility</span> <span class="hl std">=</span> <span class="hl str">&quot;public&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">eml_publish</span><span class="hl std">(</span><span class="hl str">&quot;crematogaster.xml&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span> <span class="hl kwc">categories</span> <span class="hl std">=</span> <span class="hl str">&quot;Ecology&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">tags</span> <span class="hl std">=</span> <span class="hl str">&quot;entomology&quot;</span><span class="hl std">,</span> <span class="hl kwc">destination</span> <span class="hl std">=</span> <span class="hl str">&quot;figshare&quot;</span><span class="hl std">,</span> <span class="hl kwc">visibility</span> <span class="hl std">=</span> <span class="hl str">&quot;public&quot;</span><span class="hl std">)</span>
 </pre>
 </section>
 <!-- END rEML -->
@@ -702,7 +740,7 @@ Slide Break
 <td valign="center"><br>&nbsp;<strong>→</strong> &nbsp;</td>
 <td>
 <pre><img src="images/line_separator_red.png"><strong>Document everything with metadata</strong>
-<br><p>The <code>REML</code> package makes it really easy to add valid EML to your data</p>
+<br><p>The <code>EML</code> package makes it really easy to add valid EML to your data</p>
 </pre></td>
 <td valign="center"><br>&nbsp;<strong>→</strong> &nbsp;</td>
 <td>
