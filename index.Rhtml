@@ -570,6 +570,122 @@ end.rcode-->
     </div>
 </section>
 
+<!--    ##############    slide delimiter  ##############    -->
+
+
+<section class="slide" id="reproducible_research">
+<br><br>
+    <div>
+    <h1>Sharing robust data products</h1>
+    </div>
+</section>
+
+
+
+<!--    ##############    slide delimiter  ##############    -->
+
+<section class="slide" id="eml1">
+<br><br>
+<blockquote>EML (Jones et al., 2001) is a comprehensive standard that
+has been adopted by a sector of the larger international ecological research community.
+</blockquote>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+
+<section class="slide" id="eml1b">
+<br><br>
+<blockquote>EML provides a common structure for these resources, to better enable ecologists to document, 
+share, and interpret ecological data</blockquote>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+
+<section class="slide" id="eml2">
+<br><br>
+<h2>EML standard enables data integration at the machine level (with little or no human intervention).</h2>
+</section>
+
+
+
+<!--    ##############    slide delimiter  ##############    -->
+
+<section class="slide" id="eml3">
+<br><br><br>
+<h2>EML has four general descriptors at the top of the hierarchy. One can choose
+to describe a <b>dataset</b>, a <b>protocol</b>, a <b>citation</b>, or <b>software</b>.</h2>
+</section>
+
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="eml4">
+	<h2>Without metadata, a data table such as this one is useless.</h2>
+<img src="images/bad-metadata.png">
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="eml5">
+	<h2>A table with limited metadata</h2>
+<img src="images/limited-metadata.png">
+</section>
+
+
+
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="eml6">
+	<h2>Valid EML</h2>
+<pre><code>
+&lt;?xml version="1.0"?&gt;
+&lt;eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:ds="eml://ecoinformatics.org/dataset-2.1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1" packageId="reml_3794487.58997023" system="reml"&gt;
+  &lt;dataset&gt;
+    &lt;title&gt;reml example&lt;/title&gt;
+    &lt;creator&gt;
+      &lt;individualName&gt;
+        &lt;givenName&gt;Karthik&lt;/givenName&gt;
+        &lt;surName&gt;Ram&lt;/surName&gt;
+      &lt;/individualName&gt;
+      &lt;electronicMailAddress&gt;karthik.ram@gmail.com&lt;/electronicMailAddress&gt;
+    &lt;/creator>
+</code></pre>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="eml7">
+	<h2>Valid EML</h2>
+<pre><code>
+&lt;?xml version="1.0"?&gt;
+&lt;eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:ds="eml://ecoinformatics.org/dataset-2.1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1" packageId="reml_3794487.58997023" system="reml"&gt;
+  &lt;dataset&gt;
+    &lt;title&gt;reml example&lt;/title&gt;
+    &lt;creator&gt;
+      &lt;individualName&gt;
+        &lt;givenName&gt;Karthik&lt;/givenName&gt;
+        &lt;surName&gt;Ram&lt;/surName&gt;
+      &lt;/individualName&gt;
+      &lt;electronicMailAddress&gt;karthik.ram@gmail.com&lt;/electronicMailAddress&gt;
+    &lt;/creator>
+</code></pre>
+</section>
+
+<!--    ##############    slide delimiter  ##############    -->
+<section class="slide" id="eml8">
+	<h2>Units are well defined</h2>
+<pre><code>
+ &lt;attributeName&gt;ct&lt;/attributeName&gt;
+          &lt;attributeDefinition&gt;count&lt;/attributeDefinition&gt;
+          &lt;measurementScale&gt;
+            &lt;nominal&gt;
+              &lt;nonNumericDomain&gt;
+                &lt;textDomain&gt;
+                  &lt;definition&gt;number&lt;/definition&gt;
+                &lt;/textDomain&gt;
+              &lt;/nonNumericDomain&gt;
+            &lt;/nominal&gt;
+          &lt;/measurementScale&gt;
+        &lt;/attribute&gt;
+</code></pre>
+</section>
 
 
 
