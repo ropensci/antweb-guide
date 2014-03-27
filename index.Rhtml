@@ -301,10 +301,12 @@ rNEXML</pre>
 
 <section class="slide" id="rwbclimate">
 <h2>World Bank climate knowledge portal <code>rWBclimate</code></h2>
-<pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(rWBclimate)</span>
-<span class="hl std">eu_basin</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">create_map_df</span><span class="hl std">(Eur_basin)</span>
-<span class="hl std">eu_basin_dat</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get_ensemble_temp</span><span class="hl std">(Eur_basin,</span> <span class="hl str">&quot;annualanom&quot;</span><span class="hl std">,</span> <span class="hl num">2080</span><span class="hl std">,</span> <span class="hl num">2100</span><span class="hl std">)</span>
-</pre>
+<div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(rWBclimate)</span>
+<span class="hl std">cal_basin_id</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">365</span><span class="hl std">,</span> <span class="hl num">280</span><span class="hl std">,</span> <span class="hl num">281</span><span class="hl std">,</span> <span class="hl num">282</span><span class="hl std">,</span> <span class="hl num">273</span><span class="hl std">,</span> <span class="hl num">274</span><span class="hl std">,</span> <span class="hl num">275</span><span class="hl std">)</span>
+<span class="hl std">cal_basin</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">create_map_df</span><span class="hl std">(cal_basin_id)</span>
+<span class="hl std">cal_basin_dat</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">get_ensemble_temp</span><span class="hl std">(cal_basin_id,</span> <span class="hl str">&quot;annualanom&quot;</span><span class="hl std">,</span> <span class="hl num">2080</span><span class="hl std">,</span> <span class="hl num">2100</span><span class="hl std">)</span>
+</pre></div>
+</div>
 <img src="images/rWBClimate.png">
 </section>
 
@@ -517,6 +519,75 @@ end.rcode-->
 last_five_days <- aw_images(since = 5)
 end.rcode-->
 </section>
+
+
+
+<!-- =====
+Slide Break
+==== -->
+
+<section class="slide" id="spocc2">
+<br><br>
+    <div>
+   <img src="images/spocc_outline.png">
+   <br>
+    </div>
+</section>
+
+
+<section class="slide" id="reml_demo">
+	<h2>Writing valid EML and uploading to a persistent repo is simple</h2>
+<pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(reml)</span>
+<span class="hl std">description</span> <span class="hl kwb">&lt;-</span> <span class="hl str">&quot;Landings data for several species by year, from the OpenFisheries database&quot;</span>
+
+
+<span class="hl kwd">eml_write</span><span class="hl std">(</span><span class="hl kwc">dat</span> <span class="hl std">= dat, meta,</span> <span class="hl kwc">title</span> <span class="hl std">=</span> <span class="hl str">&quot;Landings Data&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span>
+    <span class="hl kwc">creator</span> <span class="hl std">=</span> <span class="hl str">&quot;Karthik Ram &lt;karthik@ropensci.org&gt;&quot;</span><span class="hl std">,</span> <span class="hl kwc">file</span> <span class="hl std">=</span> <span class="hl str">&quot;landings.xml&quot;</span><span class="hl std">)</span>
+
+
+<span class="hl kwd">eml_publish</span><span class="hl std">(</span><span class="hl str">&quot;landings.xml&quot;</span><span class="hl std">,</span> <span class="hl kwc">description</span> <span class="hl std">= description,</span> <span class="hl kwc">categories</span> <span class="hl std">=</span> <span class="hl str">&quot;Ecology&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">tags</span> <span class="hl std">=</span> <span class="hl str">&quot;fisheries&quot;</span><span class="hl std">,</span> <span class="hl kwc">destination</span> <span class="hl std">=</span> <span class="hl str">&quot;figshare&quot;</span><span class="hl std">,</span> <span class="hl kwc">visibility</span> <span class="hl std">=</span> <span class="hl str">&quot;public&quot;</span><span class="hl std">)</span>
+</pre>
+</section>
+<!-- END rEML -->
+<!--    ##############    slide delimiter  ##############    -->
+
+
+<!-- =====
+Slide Break
+==== -->
+
+
+
+<section class="slide" id="sample-workflow">
+  <h2>A reproducible workflow in R</h2><br><br>
+<table cellspacing=100 cellpadding=100><tr><td>
+<pre><img src="images/line_separator_purple.png"><strong>Load your own data</strong>
+	<p>load all raw untransformed data.</p>
+</pre></td>
+<td valign="center"><br>&nbsp;<strong>→</strong> &nbsp;</td>
+<td>
+
+<pre><img src="images/line_separator_blue.png"><strong>Acquire additional data from the web</strong>
+<br><p>e.g. resolve taxonomic names, acquire additional datasets.</p>
+</pre></td>
+<td valign="center"><br>&nbsp;<strong>→</strong> &nbsp;</td>
+<td>
+<pre><img src="images/line_separator_red.png"><strong>Document everything with metadata</strong>
+<br><p>The <code>REML</code> package makes it really easy to add valid EML to your data</p>
+</pre></td>
+<td valign="center"><br>&nbsp;<strong>→</strong> &nbsp;</td>
+<td>
+<pre><img src="images/line_separator_green.png"><strong>Submit to a persistent repository</strong>
+<br><p>Share your data by submitting to figshare or one at your institution</p>
+
+<br><p>Generate interactive maps, viewers.</p>
+</pre></td>
+</tr></table>
+<br>
+</section>
+
+
 
 
 
