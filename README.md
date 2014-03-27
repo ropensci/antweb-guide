@@ -1,7 +1,7 @@
 ### California Academy of Sciences seminar  
 _March 27th, 2014_
 
-A quick demo of how to use the antweb R package.
+An introduction to the rOpenSci project and a quick demo of how to use the antweb R package.
 
 
 
